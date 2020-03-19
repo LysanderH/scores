@@ -15,17 +15,20 @@
     </tr>
     </thead>
     <tbody>
-    <tr>
-        <th scope="row">1</th>
-        <th scope="row">Tottenham</th>
-        <td>1</td>
-        <td>3</td>
-        <td>1</td>
-        <td>0</td>
-        <td>0</td>
-        <td>3</td>
-        <td>2</td>
-        <td>1</td>
-    </tr>
+    <?php $i = 1;
+    foreach ($scoresArray as $score): ?>
+        <tr>
+            <th scope="row"><?= $i++; ?></th>
+            <th scope="row"><?= $score['name']; ?></th>
+            <td><?= $score['games']; ?></td>
+            <td><?= $score['points']; ?></td>
+            <td><?= $score['wins']; ?></td>
+            <td><?= $score['losses']; ?></td>
+            <td><?= $score['draws']; ?></td>
+            <td><?= $score['GF']; ?></td>
+            <td><?= $score['GA']; ?></td>
+            <td><?= $score['GD']; ?></td>
+        </tr>
+    <?php endforeach; ?>
     </tbody>
 </table>

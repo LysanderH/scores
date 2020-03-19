@@ -1,5 +1,5 @@
 <table>
-    <caption>Games played at april 2nd, 2020</caption>
+    <caption>Games played at <?= date('d-m-Y'); ?></caption>
     <thead>
     <tr>
         <th scope="col">Date</th>
@@ -8,12 +8,17 @@
         <th scope="col">Away Team Goals</th>
         <th scope="col">Away Team</th>
     </tr>
-    <tr>
-        <td>2020-09-20</td>
-        <td>Belgien</td>
-        <td>2</td>
-        <td>0</td>
-        <td>USA</td>
-    </tr>
     </thead>
+    <tbody>
+    <?php /** @var stdClass $scores */
+    foreach ($scores as $score): ?>
+        <tr>
+            <td><?= date('d-m-Y', strtotime($score->date)); ?></td>
+            <td><?= $score->home_team_name; ?></td>
+            <td><?= $score->home_team_goals; ?></td>
+            <td><?= $score->away_team_goals; ?></td>
+            <td><?= $score->away_team_name; ?></td>
+        </tr>
+    <?php endforeach; ?>
+    </tbody>
 </table>

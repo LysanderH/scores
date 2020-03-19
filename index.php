@@ -1,5 +1,13 @@
 <?php
 
+require 'bootstrap.php';
+
+$teams = $query->selectAll('teams');
+
+$scores = $query->selectAllScores('games');
+
+require 'models/teams.php';
+
 $request = $_SERVER['REQUEST_URI'];
 
 switch ($request) {
@@ -10,7 +18,7 @@ switch ($request) {
         require __DIR__ . '/views/index.view.php';
         break;
     case '/add' :
-        require __DIR__ . '/controllers/add.php';
+        require __DIR__ . '/controllers/scoresController.php';
         break;
     default:
         http_response_code(404);
